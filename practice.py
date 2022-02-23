@@ -1,1 +1,7 @@
 print(5+3)
+print('풍선')
+print("풍선")
+print("ㅋ"*9)
+print(5<10)
+print(True)
+print(not True)
