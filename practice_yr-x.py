@@ -7,7 +7,7 @@
     # git commit -m "제출합니다"
     # git remote add origin https://github.com/yr-x/learninglab1.git
     # git branch -M main 
-    # push -u origin main 
+    # git push -u origin main 
 
 
 # 시작하겠습니다 
