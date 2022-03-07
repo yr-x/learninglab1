@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 초기 설정을 구현합니다  
 # Git Bash 실행 
     # git config --global user.name 이름
@@ -18,3 +19,11 @@
 # 학습을 시작합니다 
 print("hello world") #hello world
 print(3+5) #8
+=======
+# 초기 설정 
+# git init
+# git add .
+# git commit -m "제출"
+# git push origin main
+# git 
+>>>>>>> 84aad28d9a7deff26d6d5e69b35382d48b87d85c
