@@ -34,13 +34,6 @@ print(number)
 number %= 5 #1 나머지
 print(number)
 
-print(abs(-5)) #5 절대값
-print(pow(4, 2)) #4^2 제곱
-print(max(5, 12)) #12 최대값
-print(min(5, 12)) #5 최소값 
-print(round(3.14)) #3 반올림 
-
-
 animal = "고양이"
 name = "해피"
 age = 4
@@ -51,3 +44,85 @@ print("우리집" + animal + "의 이름은" + name + "예요")
 hobby = "공놀이"
 print(name,"는 ", age, "살이며", hobby, "을 아주 좋아해요")
 print(name+ "는 어른일까요?" + str(is_adult))
+
+
+print(abs(-5)) #5 절대값
+print(pow(4, 2)) #4^2 제곱
+print(max(5, 12)) #12 최대값
+print(min(5, 12)) #5 최소값 
+print(round(3.14)) #3 반올림 
+print(round(4.99)) #5
+
+from math import *
+print(floor(4.99)) #내림 4
+print(ceil(3.14)) #올림 4
+print(sqrt(16)) #제곱근 4
+
+from random import *
+print(random()) #0~1 임의값
+print(random() * 10) # 0~10
+print(int(random() * 10)) # 0~10 정수 임의값
+print(int(random() * 10) + 1) #1~10 정수 임의값 
+print(randrange(1, 26)) #1~45 정수 임의값 
+print(randint(1, 45)) #1~45 정수 임의값 
+
+# Q. 당신은 최근에 코딩 스터디 모임을 새로 만들었습니다. 
+# 월 4회 스터디를 하는데 3번은 온라인, 1번은 오프라인으로
+# 아래 조건에 맞는 오프라인 모임 날짜를 정해주는 프로그램을 작성
+
+# 조건1 랜덤으로 날짜를 뽑아야함
+# 조건2 월별 날짜는 다름을 감안하여 최소 일수인 28 이내로 정함
+# 조건3 매월 1~3일은 스터디를 준비해야하므로 제외
+
+# 출력물 예제
+# 오프라인 스터디 모임 날짜는 매월 x일로 선정되었습니다.
+
+# 문자열처리함수 
+from random import *
+date = randint(4, 28)
+print("오프라인 스터디 모임 날짜는 매월 " + str(date) + "선정되었습니다")
+
+sentence = "나는 소년입니다"
+print(sentence)
+sentence2 = "파이썬은 쉬워요"
+print(sentence2) 
+sentence3 = """
+나는 소년이고,
+파이썬은 쉬워요
+"""
+print(sentence3)
+
+jumin = "990120-1234567"
+print("성별 :" + jumin[7])
+print("연 :" +jumin[0:2]) # 0~2직전까지 (0,1)
+print("월 :" + jumin[2:4])
+print("일 :" + jumin[4:6])
+print("생년월일 :" + jumin[:6]) # 처음부터 6 직전까지
+print("뒤 7자리" + jumin[7:]) # 7부터 끝까지 
+print("뒤 7자리 (뒤에서부터) :" + jumin[-7:]) #뒤에서 7부터 끝까지
+
+python = "Python is Amazing"
+print(python.lower()) # python is amazing
+print(python.upper()) #PYTHON IS AMAZING
+print(python[0].isupper()) #true
+print(len(python)) #17 문자열 길이
+print(python.replace("Python", "Java"))
+
+index = python.index("n") #5
+print(index)
+index = python.index("n", index + 1) # 두번째 n 위치 
+print(python.find("Java")) #값이 없으면 -1
+# print(python.index("Java")) #값이 없으면 에러 발생
+print(python.count("n"))
+
+
+# 문자열포맷
+print("나는 %d살입니다" % 20) # d는 정수값만 
+print("나는 %s을 좋아해요" % "파이썬") # s는 문자
+print("Apple은 %c로 시작해요" % "A") 
+print("나는 %s색과 %s색을 좋아해요" % ("파란", "빨간"))
+print("나는 {}살입니다".format(20))
+print("나는 {}색과 {}색을 좋아해요".format("파란", "빨간"))
+print("나는 {0}색과 {1}색을 좋아해요".format("파란", "빨간"))
+print("나는 {1}색과 {0}색을 좋아해요".format("파란", "빨간"))
+print("나는 {age}살이며, {color}색을 좋아햏요".format(age = 20, color = "빨간"))
