@@ -197,5 +197,5 @@ num_list.extend(mix_list)
 print(num_list)
 
 # 사전
-
+# 
 
