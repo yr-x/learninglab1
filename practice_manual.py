@@ -9,9 +9,9 @@
     # git init 
     # git remote add origin https://github.com/yr-x/learninglab1.git
     # git add 파일명 또는 git add .
-    # git commit -m "제출합니다" 
-    # git branch -M main 
-    # git push -u origin main 
+    # git commit -m "제출합니다"  
+    # git push origin main 
+    # git pull origin main (conflict 오류 발생 시) 
 
 
 # 학습시작 
