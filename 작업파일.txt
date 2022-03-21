@@ -1,0 +1,2 @@
+VS Code 실행 및 파이썬 최초 실행 도움 글
+https://blog.naver.com/asoldieroc/222635107250
