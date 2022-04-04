@@ -15,7 +15,7 @@
 
 
 # 학습시작 
-print("hello world") #hello world
+print("hello world") # hello world
 
 # 연산자 
 print(2 + 3 * 4) #14
@@ -47,6 +47,15 @@ hobby = "공놀이"
 print(name,"는 ", age, "살이며", hobby, "을 아주 좋아해요")
 print(name+ "는 어른일까요?" + str(is_adult))
 
+
+# Q1. 변수를 이용하여 다음 문장을 출력하시오
+# 변수명: Station
+# 변수값: "사당", "신도림", "인천공항" 순서대로 입력
+# 출력문장: xx행 열차가 들어오고 있습니다. 
+station = "사당"
+print("행 열차가 들어오고 있습니다")
+
+
 # 숫자처리함수 
 print(abs(-5)) #5 절대값
 print(pow(4, 2)) #4^2 제곱
@@ -57,6 +66,7 @@ print(round(4.99)) #5
 
 from ipaddress import NetmaskValueError
 from math import *
+from sys import breakpointhook
 print(floor(4.99)) #내림 4
 print(ceil(3.14)) #올림 4
 print(sqrt(16)) #제곱근 4
@@ -70,7 +80,7 @@ print(int(random() * 10) + 1) #1~10 정수 임의값
 print(randrange(1, 26)) #1~45 정수 임의값 
 print(randint(1, 45)) #1~45 정수 임의값 
 
-# Q. 당신은 최근에 코딩 스터디 모임을 새로 만들었습니다. 
+# Q2. 당신은 최근에 코딩 스터디 모임을 새로 만들었습니다. 
 # 월 4회 스터디를 하는데 3번은 온라인, 1번은 오프라인으로
 # 아래 조건에 맞는 오프라인 모임 날짜를 정해주는 프로그램을 작성
 
@@ -85,6 +95,7 @@ print(randint(1, 45)) #1~45 정수 임의값
 from random import *
 date = randint(4, 28)
 print("오프라인 스터디 모임 날짜는 매월 " + str(date) + "선정되었습니다")
+
 
 sentence = "나는 소년입니다"
 print(sentence)
@@ -144,7 +155,7 @@ print("Red Apple\rPine") # \r 커서를 맨앞으로 이동
 print("Redd\bApple") # \b 백스페이스 한글자 삭제 
 print("Red\tApple") # \t 탭
 
-# # Q 사이트별로 비밀번호를 만들어 주는 프로그램을 작성하시오
+# Q3. 사이트별로 비밀번호를 만들어 주는 프로그램을 작성하시오
 # 예) http://naver.com
 # 규칙1 http:// 부분은 제외 => naver.com
 # 규칙2 처음 만나는 점(.) 이후 부분은 제외 => Naver
@@ -270,7 +281,7 @@ print(menu, type(menu))
 menu = set(menu)
 print(menu, type(menu))
 
-# Q. 당신의 학교에서는 파이썬 코딩 대회를 주최합니다.
+# Q4. 당신의 학교에서는 파이썬 코딩 대회를 주최합니다.
 # 참석률을 높이기 위해 댓글을 이벤트를 진행하기로 하였습니다.
 # 댓글 작성자들 중에 추첨을 통해 1명은 치킨, 3명은 커피 쿠폰을 받게 됩니다.
 # 추첨 프로그램을 작성하시오.
@@ -283,10 +294,306 @@ print(menu, type(menu))
 # 치킨 당첨자: 1
 # 커피 당첨자: [2,3,4]
 # --축하합니다--
-# # 활용 예제
+# 활용 예제
 from random import * 
-lst = [1,2,3,4,5]
-print(lst)
-shuffle(lst)
-print(lst)
-print(sample(lst, 1))
+users = range(1, 21) # 1부터 20까지 숫자 생성
+users = list(users) # 리스트로 변경 
+print(users)
+shuffle(users)
+print(users)
+winners = sample(users, 4) 
+print("--당첨자 발표--")
+print("치킨 당첨자 : {0}".format(winners[0]))
+print("커피 당첨자 : {0}".format(winners[1:]))
+print("--축하합니다--")
+
+# if
+weather = input("오늘 날씨는 어때요? ")
+if weather == "비" or weather =="눈":
+    print("우산을 챙기세요")
+elif weather == "미세먼지": 
+    print("마스크를 챙기세요")
+else:
+    print("준비물 필요 없어요")
+
+temp = int(input("기온은 어때요? "))
+if 30 <= temp:
+    print("너무 더워요. 나가지마세요")
+elif 10 <= temp and temp <30:
+    print("괜찮은 날씨에요")
+elif 0 <= temp and temp <10:
+    print("외투를 챙기세요")
+else:
+    print("너무 추워요 나가지 마세요")
+
+# for
+# 대기번호 1~4
+for waiting_no in range(1, 6): # 0,1,2,3,4,5
+    print("대기번호 : {0}".format(waiting_no))
+starbucks = ["아이언맨","토르","그루트"]
+for customer in starbucks:
+    print("{0}, 커피가 준비되었습니다".format(customer))
+
+# while 조건 만족할때까지 반복 
+customer = "토르"
+index = 5
+while index >=1:
+    print("{0}, 커피가 준비되었습니다. {1} 번 남았어요".format(customer, index))
+    index -= 1
+    if index == 0:
+        print("커피는 폐기처분되었습니다")
+
+# customer = "아이언맨"
+# index = 1
+# while True:
+#     print("{0}, 커피가 준비되었습니다. 호출 {1}회". format(customer, index))
+#     index += 1
+# 무한루프, ctrl+C 강제종료
+
+customer = "토르"
+person = "unknown"
+
+while person != customer :
+    print("{0}, 커피가 준비되었습니다".format(customer))
+    person = input("이름이 어떻게 되세요 ")
+
+
+# continue, break
+absent = [2, 5] # 결석
+no_book = [7] #책을 깜빡했음
+for student in range(1, 11): # 1~10
+    if student in absent:
+        continue
+    elif student in no_book:
+        print("오늘 수업 여기까지. {0}는 교뮤실로 따라와".format(student))
+        break # 반복문 탈출
+    print("{0}, 책을 읽어봐".format(student))
+
+# for
+# 출석번호가 1 2 3 4, 앞에 100을 붙이기로 함 -> 101, 102, 103, 104
+students = {1,2,3,4,5}
+print(students)
+students = [i+100 for i in students]
+
+# 학생 이름을 길이로 변환
+students = ["Iron man", "Thor", "I am groot"]
+students = [len(i) for i in students]
+print(students)
+
+# 학생 이름을 대문자로 변환
+students = ["Iron man", "Thor", "I am groot"]
+students = [i.upper() for i in students]
+print(students)
+
+
+# Q5. 당신은 Cocoa 서비스를 이용하는 택시 기사입니다.
+# 50명의 승객과 매칭 기회가 있을 때 총 탑승 승객 수를 구하는 프로그램을 작성하시오
+# 조건1: 승객별 운행 소요 시간은 5분~50분 사이의 난수로 정해집니다.
+# 조건2: 당신은 소요 시간 5분~15분 사이의 승객만 매칭해야 합니다
+
+# (출력문 예제)
+# [0] 1번째 손님 (소요시간: 15분)
+# [ ] 2번째 손님 (소요시간: 50분)
+# [0] 3번째 손님 (소요시간: 5분)
+# ...
+# [ ] 50번째 손님 (소요시간: 16분)
+# 총 탑승 승객 : 2분
+
+from random import *
+cnt = 0 # 총 탑승 승객 수
+for i in range(1, 51): #1~50 승객
+    time = randrange(5, 51) # 5분~50분 소요 시간
+    if 5 <= time <= 15: # 5분
+        print("[0] {0}번째 손님 (소요시간 : {1}분)".format(i, time))
+        cnt += 1
+    else: # 매칭 실패한 경우 
+        print("[ ] {0}번째 손님 (소요시간 : {1}분)".format(i, time))
+
+print("총 탑승 승객 : {0} 분".format(cnt))
+
+
+# 함수
+def open_account():
+    print("새로운 계좌가 생성되었습니다")
+
+def deposit(balance, money): 
+    print("입금이 완료되었습니다. 잔액은 {0} 원입니다".format(balance + money))
+    return balance + money
+
+def withdraw(balance, money):
+    if balance >= money: # 잔액이 출금보다 많으면 
+        print("출금이 완료되었습니다. 잔액은 {0}원입니다.".format(balance - money))
+        return balance - money
+    else: 
+        print("출금이 완료되지 않았습니다. 잔액은 {0}원입니다.".format(balance))
+        return balance
+
+balance = 0 # 잔액
+balance = deposit(balance, 1000)
+print(balance)
+balance = withdraw(balance, 500)
+
+def withdraw_night(balance, money): # 저녁에 출금
+    commission = 100 # 수수료 100원
+    return commission, balance - money - commission 
+balance = 0
+balance = deposit(balance, 1000)
+comission, balance = withdraw_night(balance, 500)
+print("수수료 {0}원이며, 잔액은 {1}원입니다.".format(comission, balance))
+
+
+# 기본값
+
+def profile(name, age, main_lang):
+    print("이름: {0}\t나이 : {1}\t주 사용 언어: {2}"\
+        .format(name, age, main_lang))
+profile("유재석", 20, "파이썬")
+profile("김태호", 25, "자바")
+
+# 같은 학교 같은 학년 같은 반 같은 수업
+def profile(name, age=17, main_lang="파이썬"):
+    print("이름: {0}\t나이 : {1}\t주 사용 언어: {2}"\
+        .format(name, age, main_lang))
+    
+profile("유재석")
+profile("김태호")
+
+# 키워드값 
+def profile(name, age, main_lang):
+    print(name, age, main_lang)
+profile(name="유재석", main_lang="파이썬", age=20)
+
+# 가변인자
+def profile(name, age, lang1, lang2, lang3, lang4, lang5):
+    print("이름: {0}\t나이 : {1}\t".format(name, age), end=" ")
+    print(lang1, lang2, lang3, lang4, lang5)
+
+def profile(name, age, *language):
+    print("이름: {0}\t나이 : {1}\t".format(name, age), end=" ")
+    for lang in language:
+        print(lang, end=" ")
+    print()
+
+profile("유재석", 20, "python", "java", "C", "C++", "C#", "javaScript")
+profile("김태호", 25, "Kotlin", "swift", "", "", "")
+
+# 지역변수와 전역변수
+gun = 10
+def checkpoint(soldiers): #경계근무
+    global gun # 전역 공간에 있는 gun 사용 
+    gun = gun - soldiers 
+    print("[함수 내] 남은 총: {0}".format(gun))
+
+def checkpoint_ret(gun, soldiers):
+    gun = gun - soldiers
+    print("[함수 내] 남은 총: {0}".format(gun))
+    return gun 
+
+print("전체 총: {0}".format(gun))
+checkpoint(2) # 2명이 경계 근무 나감
+gun = checkpoint_ret(gun, 2)
+print("남은 총: {0}".format(gun))
+
+# Q6. 표준 체중을 구하는 프로그램을 작성하시오
+# * 표준 체중: 각 개인의 키에 적당한 체중
+# (성별에 따른 공식)
+# 남자: 키(m) x 키(m) + 22
+# 여자: 키(m) x 키(m) + 21
+# 조건1: 표준 체중은 별도의 함수 내에서 계산
+# * 함수명: std_weight
+# * 전달값: 키(height), 성별(gender)
+# 조건2: 표준체중은 소수점 둘째자리까지 표시
+# (출력 예제)
+# 키 175cm 남자의 표준 체중은 67.38kg 입니다.
+
+def std_weight(height, gender): # 키 m 단위 (실수), 성별 "남자"/"여자"
+    if gender == "남자":
+        return height * height * 22
+    else:
+        return height * height * 21
+
+height = 175 
+gender = "남자"
+weight = round(std_weight(height / 100, gender), 2)
+print("키 {0}cm {1}의 표준 체중은 {2}kg 입니다.".format(height, gender, weight))
+
+# 표준입출력
+print("Python", "Java", "JavaScript", sep="vs", end="?")
+print("무엇이 더 재밌을까요?")
+
+import sys
+print("python","Java", file=sys.stdout)
+print("python","Java", file=sys.stderr)
+
+scores = {"수학":0, "영어":50, "코딩":100}
+for subject, score in scores.items(): 
+    print(subject.ljust(8), str(score).rjust(4), sep=":") # 왼오정렬, 8/4공간 확보
+
+# 은행 대기순번표
+for num in range(1,21):
+    print("대기번호 :" + str(num).zfill(3))  # 001, 002~020
+
+answer = input("아무 값이나 입력하세요 : ") 
+print(type(answer)) # 문자열 형태로만 저장됨
+print("입력하신 값은 " + answer + "입니다") 
+
+# 빈 자리는 빈공간으로 두고, 오른쪽 정렬을 하되, 총 10자리 공간을 확보
+print("{0: >10}".format(500))
+# 양수일때는 +로 표시, 음수일때는 -로 표시 
+print("{0: >+10}".format(500))
+print("{0: >+10}".format(-500))
+# 왼쪽 정렬하고, 빈칸으로 _로 채움
+print("{0:_<+10}".format(-500))
+# 3자리마다 콤마 찍어주기
+print("{0:,}".format(100000000000))
+# 3자리마다 콤마 찍어주기, +-부호도 붙이기
+print("{0:+,)",format(10000000000))
+print("{0:+,)",format(-10000000000))
+# 3자리마다 콤마 찍어주기, 부호 붙이고 자릿수 확보, 빈자리는 ^채우기
+print("{0:^<+30,}".format(100000000000))
+# 소수점 출력
+print("{0:f}".format(5/3))
+# 소수점 측정 자리수까지만 표시 (소수점 3째 자리에서 반올림)
+print("{0:.2f}".format(5/3))
+
+
+# 파일입출력
+score_file = open("score.txt", "w", encoding="utf8")
+print("수학 : 0", file=score_file)
+print("영어 : 50", file=score_file)
+score_file.close()
+
+score_file = open("score.txt", "a", encoding="utf8")
+score_file.write("과학: 80")
+score_file.write("\n코딩: 100") # 줄바꿈
+score_file.close()
+
+score_file = open("score.txt", "r", encoding="utf8")
+print(score_file.read())
+score_file.close()
+
+score_file = open("score.txt", "r", encoding="utf8")
+print(score_file.readline(), end="") # 줄별로 읽기, 한줄읽고 커서는 다음줄로 
+print(score_file.readline())
+print(score_file.readline())
+print(score_file.readline())
+score_file.close() 
+
+score_file = open("score.txt", "r", encoding="utf8")
+while True: 
+    line = score_file.read()
+    if not line: 
+        break 
+    print(line, end="")
+score_file.close()
+
+score_file = open("score.txt", "r", encoding="utf8")
+lines = score_file.realines()
+for line in lines:
+    print(line, end="")
+score_file.close()
+
+
+# 피클 
+
+
