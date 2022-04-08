@@ -52,8 +52,8 @@ print(name+ "는 어른일까요?" + str(is_adult))
 # 변수명: Station
 # 변수값: "사당", "신도림", "인천공항" 순서대로 입력
 # 출력문장: xx행 열차가 들어오고 있습니다. 
-station = "사당"
-print("행 열차가 들어오고 있습니다")
+station = "신도림"
+print(station + "행 열차가 들어오고 있습니다")
 
 
 # 숫자처리함수 
@@ -210,7 +210,7 @@ print(mix_list)
 num_list.extend(mix_list)
 print(num_list)
 
-# 사전
+# 사전 { }
 cabinet = {3:"유재석", 100:"김태호"}
 print(cabinet[3])
 print(cabinet[100])
@@ -295,6 +295,7 @@ print(menu, type(menu))
 # 커피 당첨자: [2,3,4]
 # --축하합니다--
 # 활용 예제
+
 from random import * 
 users = range(1, 21) # 1부터 20까지 숫자 생성
 users = list(users) # 리스트로 변경 
@@ -302,6 +303,7 @@ print(users)
 shuffle(users)
 print(users)
 winners = sample(users, 4) 
+print(winners)
 print("--당첨자 발표--")
 print("치킨 당첨자 : {0}".format(winners[0]))
 print("커피 당첨자 : {0}".format(winners[1:]))
@@ -365,7 +367,7 @@ for student in range(1, 11): # 1~10
     if student in absent:
         continue
     elif student in no_book:
-        print("오늘 수업 여기까지. {0}는 교뮤실로 따라와".format(student))
+        print("오늘 수업 여기까지. {0}는 교무실로 따라와".format(student))
         break # 반복문 탈출
     print("{0}, 책을 읽어봐".format(student))
 
@@ -515,6 +517,7 @@ def std_weight(height, gender): # 키 m 단위 (실수), 성별 "남자"/"여자
 height = 175 
 gender = "남자"
 weight = round(std_weight(height / 100, gender), 2)
+print(weight)
 print("키 {0}cm {1}의 표준 체중은 {2}kg 입니다.".format(height, gender, weight))
 
 # 표준입출력
@@ -619,7 +622,7 @@ with open("study.txt", "w", encoding="utf8") as study_file:
 with open("study.txt", "r", encoding="utf8") as study_file:
     print(study_file.read())
 
-# Q. 당신의 회사에서는 매주 1회 작성해야 하는 보고서가 있습니다.
+# Q7. 당신의 회사에서는 매주 1회 작성해야 하는 보고서가 있습니다.
 # 보고서는 항상 아래와 같은 형태로 출력되어야 합니다.
 # -  x 주차 주간보고 - 
 # 부서 :
@@ -636,7 +639,9 @@ for i in range(1, 51):
         report_file.write("\n이름 :")
         report_file.write("\n업무 요약: ")
 
+
 # 클래스 (스타크래프트)
+
 # 마린 : 공격유닛, 군인, 총을 쏠 수 있음
 name = "마린" 
 hp = 40
