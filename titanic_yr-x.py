@@ -1,17 +1,18 @@
 # 데이터 가져오기
 from configparser import MAX_INTERPOLATION_DEPTH
 import pandas as pd
-from sklearn.decomposition import randomized_svd
+from sklearn.decomposition import randomized_svd 
 
-x_train = pd.read_csv('titanic_x_train.csv')
-x_test = pd.read_csv('titanic_x_test.csv')
+x_train = pd.read_csv('titanic_x_train.csv', encoding = 'cp949')
+x_test = pd.read_csv('titanic_x_test.csv', encoding = 'cp949')
 y_train = pd.read_csv('titanic_y_train.csv')
 
 # 전처리 
 x_test_passenger_id = x_test['PassengerId']
 x_train = x_train.drop(columns = ['PassengerId'])
 x_test = x_test.drop(columns = ['PassengerId'])
-y_train = y_train.drop(columns = ['PassengerId'])
+y_train = y_train.drop(columns= ['PassengerId'])
+
 x_train = x_train.drop(columns = ['티켓번호'])
 x_test = x_test.drop(columns = ['티켓번호'])
 x_train = x_train.drop(columns = ['승객이름'])
@@ -46,11 +47,11 @@ x_test = x_test.drop(columns=['형제자매배우자수','부모자식수'])
 # 데이터 분리 
 from sklearn.model_selection import train_test_split
 X_TRAIN, X_TEST, Y_TRAIN, Y_TEST = \
-    train_test_split(x_train, y_train, test_size = 0.2, randomized_state = 10)
+    train_test_split(x_train, y_train, test_size = 0.2, random_state = 10)
 
 # 모델 학습
 from xgboost import XGBClassifier 
-model = XGBClassifier(n_estimators = 100, max_depth = 5, eval_matric = 'error',\
+model = XGBClassifier(n_estimators = 100, max_depth = 5, eval_metric = 'error',\
     random_state = 10)
 model.fit(X_TRAIN, Y_TRAIN)
 
@@ -60,3 +61,5 @@ y_test_prediccted = pd.DataFrame(model.predict(x_test)).\
 final = pd.concat([x_test_passenger_id, y_test_prediccted], axis = 1)
 final.to_csv('titanic_modeling_yr-x.csv', index = False)
 
+
+# R2 score 회귀모델 성능 평가 
