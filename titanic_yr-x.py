@@ -1,11 +1,23 @@
 # 데이터 가져오기
 from configparser import MAX_INTERPOLATION_DEPTH
 import pandas as pd
-from sklearn.decomposition import randomized_svd 
+import matplotlib.pyplot as plt 
+import seaborn as sns 
+from sklearn.decomposition import randomized_svd
+import xgboost 
 
 x_train = pd.read_csv('titanic_x_train.csv', encoding = 'cp949')
 x_test = pd.read_csv('titanic_x_test.csv', encoding = 'cp949')
 y_train = pd.read_csv('titanic_y_train.csv')
+
+# EDA 
+# x_train.info()
+# x_test.info()
+# y_train.info()
+
+# x_train.head()
+# x_train.isnull().sum()
+
 
 # 전처리 
 x_test_passenger_id = x_test['PassengerId']
@@ -45,7 +57,7 @@ x_test['가족수'] = x_test['형제자매배우자수'] + x_test['부모자식�
 x_test = x_test.drop(columns=['형제자매배우자수','부모자식수'])
 
 # 데이터 분리 
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import cross_val_score, train_test_split
 X_TRAIN, X_TEST, Y_TRAIN, Y_TEST = \
     train_test_split(x_train, y_train, test_size = 0.2, random_state = 10)
 
@@ -55,11 +67,15 @@ model = XGBClassifier(n_estimators = 100, max_depth = 5, eval_metric = 'error',\
     random_state = 10)
 model.fit(X_TRAIN, Y_TRAIN)
 
+
 # 최종 결과 저장 
-y_test_prediccted = pd.DataFrame(model.predict(x_test)).\
+y_test_predicted = pd.DataFrame(model.predict(x_test)).\
     rename(columns = {0:'Survived'})
-final = pd.concat([x_test_passenger_id, y_test_prediccted], axis = 1)
+final = pd.concat([x_test_passenger_id, y_test_predicted], axis = 1)
 final.to_csv('titanic_modeling_yr-x.csv', index = False)
 
 
-# R2 score 회귀모델 성능 평가 
+# 모델 성능 평가 
+# from sklearn.metrics import accuracy_score
+# accuracy = cross_val_score(xgboost, X_TEST, Y_TEST, scoring='accuracy')
+# print(accuracy.mean())
